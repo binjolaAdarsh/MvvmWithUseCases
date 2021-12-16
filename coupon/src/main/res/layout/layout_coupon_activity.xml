@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="adapter"
+            type="com.master.coupon.presentation.coupons.ViewCouponAdapter" />
+       </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/Widget.AppCompat.ActionBar">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="0dp"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                app:layout_scrollFlags="scroll">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilCouponCode"
+                        style="@style/formTextInput"
+                        android:background="@drawable/coupon_search_bg"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:hint="Enter Coupon Code"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderTextColor="@color/coupon_text_hint"
+                        app:placeholderText="NBAP300">
+
+                        <EditText
+                            android:id="@+id/etCouponCode"
+                            style="@style/formEditText"
+                            android:imeOptions="actionDone"
+                            android:inputType="textCapCharacters" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/tvCouponError"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:textColor="@color/coupon_error_color"
+                        android:textSize="12sp"
+                        android:visibility="invisible"
+                        app:layout_constraintEnd_toEndOf="@+id/tilCouponCode"
+                        app:layout_constraintStart_toStartOf="@+id/tilCouponCode"
+                        app:layout_constraintTop_toBottomOf="@+id/tilCouponCode"
+                        tools:text="asdasdas asdasd asd asdas dasd asdas "
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/btApply"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="16dp"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:text="@string/apply"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/coupon_apply_text_color_disables"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tilCouponCode"
+                        app:layout_constraintEnd_toEndOf="@+id/tilCouponCode"
+                        app:layout_constraintTop_toTopOf="@+id/tilCouponCode" />
+
+                    <View
+                        android:id="@+id/divider5"
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:background="@color/coupon_background"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCouponError" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/ic_star_rate"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="rvViewCoupon,divider5"
+            tools:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvViewCoupon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider5"
+            app:setAdapter="@{adapter}"
+            tools:visibility="gone"
+            tools:listitem="@layout/view_coupon_item" />
+
+        <include
+            android:id="@+id/layout_error"
+            layout="@layout/coupon_error_screen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:btnName="@{@string/ok}"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider5"
+            app:layout_constraintVertical_bias="0.41000003"
+            tools:visibility="gone" />
+
+        <include
+            android:id="@+id/layout_empty"
+            layout="@layout/coupon_empty_screen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider5"
+            app:layout_constraintVertical_bias="0.41000003"
+            tools:visibility="gone" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

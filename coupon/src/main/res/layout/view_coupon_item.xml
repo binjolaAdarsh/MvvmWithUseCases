@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="coupon"
+            type="com.master.coupon.domain.model.Coupon" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/view_coupon_save_bg"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            android:visibility="@{coupon.applied ? View.INVISIBLE :( TextUtils.isEmpty(coupon.saveRs)? View.INVISIBLE : View.VISIBLE)}"
+            tools:visibility="visible"
+            android:paddingBottom="4dp"
+            android:text="@{coupon.saveRs}"
+            android:textColor="@color/coupon_apply_green"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            tools:text="save rs 300" />
+
+
+        <TextView
+            android:id="@+id/tvApplied"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:drawablePadding="8dp"
+            android:gravity="center|end"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="@string/applied"
+            android:textColor="@color/coupon_apply_green"
+            android:textSize="16sp"
+            android:visibility="@{coupon.applied ? View.VISIBLE :View.INVISIBLE}"
+            app:drawableStartCompat="@drawable/ic_applied"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.444"
+            tools:text="Applied"
+            tools:visibility="invisible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            app:layout_constraintWidth_min="140dp"
+            android:layout_marginStart="16dp"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setImageUrl="@{coupon.imageUrl}"
+            tools:srcCompat="@drawable/ic_coupon_default" />
+
+        <TextView
+            android:id="@+id/tvCouponTitle"
+            android:layout_width="0dp"
+            android:singleLine = "false"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:scrollHorizontally="true"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="@{coupon.title}"
+
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/textView5"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            tools:text="Get 20% off on  Cosmetics Get 20% off on  Cosmetics Get 20% off on Cosmetics " />
+
+        <TextView android:ellipsize="end"
+            android:singleLine="true"
+            android:id="@+id/tvCouponSubTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@{coupon.subTitle}"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView5"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/tvCouponTitle"
+            tools:text="On purchase of 4 or more products" />
+
+        <TextView
+            android:id="@+id/tvViewDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/coupon_view_details"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@id/tvCouponSubTitle" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/view_coupon_bg"
+            android:minWidth="150dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btApply"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/tvViewDetails"
+            app:layout_constraintVertical_bias="0.0"
+            tools:background="@drawable/view_coupon_bg">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="@{coupon.expires}"
+                android:textSize="12sp"
+                android:visibility="@{TextUtils.isEmpty(coupon.expires)? View.GONE : View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView6"
+                tools:text="Expires on 31 May 2021"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="@{coupon.couponCode}"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/textView8"
+                app:layout_constraintEnd_toStartOf="@+id/textView7"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="FGO" />
+
+            <ImageView
+                android:id="@+id/textView7"
+                android:layout_width="40dp"
+                android:layout_height="13dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_important"
+                android:textStyle="bold"
+                android:visibility="@{coupon.prive ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toTopOf="@+id/textView8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <Button
+            android:id="@+id/btApply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:enabled="@{coupon.locked ? false : true}"
+            android:text="@{coupon.applied ? @string/view_coupon_remove : @string/apply}"
+            android:textColor="@{coupon.locked ? @color/coupon_apply_border : (coupon.applied ? @color/coupon_text_color : @color/coupon_primary_color)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/tvViewDetails"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="@string/apply"/>
+
+        <View
+            android:id="@+id/divider6"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/coupon_apply_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+        <TextView
+            android:text="@{coupon.deltaText}"
+            android:id="@+id/tvDelta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            tools:text="add more product to open cart"
+            android:textColor="@color/coupon_primary_color"
+            android:textSize="16sp"
+            app:drawableEndCompat="@drawable/ic_arrow_forward"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider6" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{coupon.locked ? View.VISIBLE : View.GONE }"
+            app:constraint_referenced_ids="divider6,tvDelta"
+            tools:visibility="visible" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

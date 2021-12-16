@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MvvmWithUseCases</string>
+    <string name="view_coupons">View Coupons</string>
 </resources>
