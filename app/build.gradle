@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+
 }
 
 android {
@@ -31,11 +33,16 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
 }
 
 dependencies {
     api project(path: ':core')
     implementation project(path: ':networkModule')
+    implementation project(path: ':coupon')
     implementation "com.google.dagger:hilt-android:2.40.4"
     kapt "com.google.dagger:hilt-compiler:2.40.4"
 }

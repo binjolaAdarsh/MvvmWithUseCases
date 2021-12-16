@@ -10,3 +10,4 @@ rootProject.name = "MvvmWithUseCases"
 include ':app'
 include ':networkModule'
 include ':core'
+include ':coupon'

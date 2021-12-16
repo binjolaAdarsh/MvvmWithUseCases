@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="action_bar_text_color">#272626</color>
+    <color name="coupon_apply_border">#29011323</color>
+    <color name="coupon_text_color">#29011323</color>
+    <color name="white">#ffffff</color>
+    <color name="coupon_apply_green">#4CAF50</color>
+    <color name="coupon_text_hint">#A3AAB0</color>
+    <color name="coupon_apply_text_color_disables">#5C001325</color>
+    <color name="coupon_primary_color">#C5574F</color>
+    <color name="coupon_search_bg">#FFFEFA</color>
+    <color name="coupon_search_strip_default">#9D9EA0</color>
+    <color name="coupon_error_color">#DF1D0F</color>
+    <color name="coupon_background">#D3FAF5F5</color>
+    <color name="coupon_internet_available">#4CAF50</color>
+</resources>

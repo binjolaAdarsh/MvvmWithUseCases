@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CouponCurvedTheme" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CouponBackgroundRounded</item>
+    </style>
+
+    <style name="CouponBackgroundRounded" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/coupon_round_bottom_sheet</item>
+    </style>
+    <style name="formTextInput" parent = "Widget.Design.TextInputLayout">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:background">@drawable/coupon_search_bg</item>
+        <!--
+                <item   name="placeholderText">@color/text_hint</item>
+        -->
+        <item name="android:textColorHint">@color/coupon_text_hint</item>
+        <item name="hintTextColor">@color/coupon_text_hint</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="placeholderTextColor">@color/coupon_text_hint</item>
+    </style>
+    <style name="formEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+
+
+</resources>

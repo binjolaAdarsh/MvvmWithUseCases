@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="remove_coupon">Remove Coupon</string>
+    <string name="confirm_user_this_coupon">Are you sure you don’t want to use this coupon?</string>
+    <string name="view_coupon_remove">Remove</string>
+    <string name="coupon_cancel">cancel</string>
+    <string name="close">close</string>
+    <string name="remove_and_apply">Remove and Apply</string>
+    <string name="are_you_sure_you_want_to_remove">Are you sure you want to remove and apply this one?</string>
+    <string name="apply">Apply</string>
+    <string name="an_error_occurred">error occured</string>
+    <string name="something_completely_went_wrong">something went wrong</string>
+    <string name="oops">oops!</string>
+    <string name="we_are_sorry">"we are sorry "</string>
+    <string name="ok">ok</string>
+    <string name="applied">applied</string>
+    <string name="coupon_view_details">View Details</string>
+    <string name="coupon_online_back">online</string>
+    <string name="coupon_offline_msg">offline</string>
+    <string name="coupon_applied">coupon applied</string>
+    <string name="coupon_error">Coupon could not be %1$s due to a technical issue. Please try again later.</string>
+    <string name="title_view_coupon">Coupons</string>
+    <string name="clear">clear</string>
+    <string name="error_occurred_view_detail">error occured</string>
+    <string name="terms_and_conditions">terms and conditions</string>
+    <string name="all_terms_and_conditions">all terms and conditions</string>
+    <string name="add_more_to_cart">add more to cart</string>
+</resources>
